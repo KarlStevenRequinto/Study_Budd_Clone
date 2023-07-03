@@ -6,13 +6,18 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>StudyBud_Clone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% comment %} <link rel="stylesheet" href="" media="screen" /> {% endcomment %}
+    {% comment %}
+    <link rel="stylesheet" href="" media="screen" />
+    {% endcomment %}
   </head>
   <body>
-    {% include "navbar.html" %}
-    {% block content %}
-    
-    {% endblock  %}
+    {% include "navbar.html" %} {% if messages %}
+    <ul class="message">
+      {% for message in messages %}
+      <li>{{message}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %} {% block content %} {% endblock %}
 
     <script src="" async defer></script>
   </body>
