@@ -18,13 +18,15 @@ def home(request):
         Q(name__icontains=q) | Q(description__icontains=q)
     )
     topics = Topic.objects.all()
-    context = {"rooms": rooms, "topics": topics}
+    room_messages = Message.objects.all().filter(Q(room__topic__name__icontains=q))
+    context = {"rooms": rooms, "topics": topics,
+               "room_messages": room_messages}
     return render(request, "base/home.html", context)
 
 
 def room(request, pk):
     room = Room.objects.get(id=pk)
-    room_messages = room.message_set.all().order_by("-created")
+    room_messages = room.message_set.all()
     participants = room.participants.all()
     if request.method == "POST":
         message = Message.objects.create(
@@ -131,6 +133,7 @@ def registerPage(request):
             messages.error(request, "An error occured during registration")
 
     return render(request, "base/login_register.html", {"form": form})
+
 
 @login_required(login_url="login")
 def deleteMessage(request, pk):
