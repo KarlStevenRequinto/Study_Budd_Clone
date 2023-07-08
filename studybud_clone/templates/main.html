@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-
+{% load static %}
 <html>
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <title>StudyBud_Clone</title>
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    {% comment %}
-    <link rel="stylesheet" href="" media="screen" />
-    {% endcomment %}
+    <link rel="stylesheet" href="{% static 'styles/main.css' %}" media="screen" type="text/css"/>
   </head>
   <body>
     {% include "navbar.html" %} {% if messages %}
@@ -17,7 +15,10 @@
       <li>{{message}}</li>
       {% endfor %}
     </ul>
-    {% endif %} {% block content %} {% endblock %}
+    {% endif %}
+    {% comment %} <img src="{% static 'images/uly-rico.png' %}" alt=""> {% endcomment %}
+    
+    {% block content %} {% endblock %}
 
     <script src="" async defer></script>
   </body>
