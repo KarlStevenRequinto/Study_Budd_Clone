@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 {% load static %}
-<html>
+<html lang="en">
   <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>StudyBud_Clone</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="{% static 'styles/main.css' %}" media="screen" type="text/css"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="assets/favicon.ico" type="image/x-icon" />
+    <link rel="stylesheet" href="{% static 'styles/styles.css' %}" />
+    <title>StudyBuddy - Find study partners around the world!</title>
   </head>
+
   <body>
     {% include "navbar.html" %} {% if messages %}
     <ul class="message">
@@ -15,11 +17,7 @@
       <li>{{message}}</li>
       {% endfor %}
     </ul>
-    {% endif %}
-    {% comment %} <img src="{% static 'images/uly-rico.png' %}" alt=""> {% endcomment %}
-    
-    {% block content %} {% endblock %}
-
-    <script src="" async defer></script>
+    {% endif %} {%block content %} {% endblock %}
+    <script src="{% static 'js/script.js' %}"></script>
   </body>
 </html>
