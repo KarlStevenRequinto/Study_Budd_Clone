@@ -7,7 +7,7 @@
       class="roomListRoom__author"
     >
       <div class="avatar avatar--small">
-        <img src="{% static 'images/emarson-bayang.jpeg' %}" />
+        <img src="{{room.host.avatar.url}}" />
       </div>
       <span>@{{room.host.username}}</span>
     </a>
